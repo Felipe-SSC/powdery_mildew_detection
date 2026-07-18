@@ -1,5 +1,23 @@
 # Powdery Mildew Detection
 
+## Índice de contenidos
+- [1. Descripción del problema](#1-descripción-del-problema)
+
+- [2. Dataset](#2-dataset)
+
+- [3. Flujo de trabajo](#3-flujo-de-trabajo)
+
+    - [3.1. Modelo Resnet (Sin Regularización)](#31-modelo-resnet-sin-regularización)
+
+    - [3.2. Modelo Resnet (Regularizado)](#32-modelo-resnet-regularizado)
+
+    - [3.3. Modelo MobileNet (Sin Regularización)](#33-modelo-mobilenet-sin-regularización)
+
+    - [3.4. Modelo MobileNet (Regularizado)](#34-modelo-mobilenet-regularizado)
+
+- [4. Resultados y Conclusiones](#4-resultados-y-conclusiones)
+
+
 ## 1. Descripción del Problema
 
 El mercado de las cerezas es uno en los que Chile tiene mayor participación a nivel mundial, posicionándose en la actualidad como uno de los mayores exportadores de todo el mundo. Por esto mismo, el estudio y seguimiento del correcto crecimiento de las cerezas se ha vuelto clave para asegurar mejores cosechas, aumentar la producción y presentar mayores ingresos para un gran número de entidades, desde agricultores hasta grandes empresas. Es por esto que se postula el diseño de un algoritmo de detección automatizado de la enfermedad 'blanquilla' u 'oídio' en los cultivos de las cerezas, esto a través de modelos de Deep Learning basados en conjuntos de imágenes.
@@ -14,11 +32,46 @@ Para efectos del proyecto, los cultivos relevantes son los cerezos, que dentro d
 
 En total, el dataset contiene 1906 imágenes, con 1526 y 380 imágenes de entrenamiento y validación, respectivamente, donde se encuentra un promedio de 55.3% de hojas con peste y un 44.7% restante de hojas sanas, presentando así una proporción de 80/20 de training-validation.
 
+![Figura 1](./images/piecharts_eda.png)
+
+Cabe destacar que las imágenes están preparadas y estandarizadas para el correcto estudio, esto dado que todas comparten medidas de 256 x 256 pixeles cada una, además de compartir una fuente de iluminación similar, así como el fondo de cada una de las hojas, facilitando su procesamiento:
+
+![Figura 2](./images/hojas_muestra_sanas.png)
+
+Asimismo, la oídia se caracteriza por la presencia de manchas claras en las hojas, haciendo que la detección se pueda apoyar en el contraste e iluminación de las imágenes que son ingresadas a cada modelo:
+![Figura 3](./images/hojas_muestra_plaga.png)
+
+
 ## 3. Flujo de trabajo
 
 Para alcanzar resultados, se trabajará primero mediante el preprocesado de imágenes, por medio de procesos de redimensionamiento, transformación y centrado, para poder así dejar las mismas en condiciones que faciliten el trabajo de procesado, así como trabajar en tandas de tamaño 12 para un manejo más amigable en el tiempo de procesamiento. En segundo lugar, la función para medir la pérdida será la entropía cruzada, con un lr de 0.001.
 
 Ya entrando a la etapa de preprocesado, se trabajarán con 5 épocas, promediando los resultados tanto de entrenamiento así como de validación.
+
+### 3.1 Modelo Resnet (Sin regularización)
+
+### 3.2. Modelo Resnet (Regularizado)
+
+### 3.3. Modelo MobileNet (Sin Regularización)
+
+### 3.4. Modelo MobileNet (Regularizado)
+
+## 4. Resultados y conclusiones
+
+## Estructura del proyecto:
+```
+powdery_mildew_detection
+├───dataset ()                                          # Carpeta con los datos a utilizar
+│   ├───train                                           # Imágenes de entrenamiento categorizadas
+│   │   ├───Cherry_(including_sour)___healthy           # Datos de hojas sanas
+│   │   └───Cherry_(including_sour)___Powdery_mildew    # Datos de hojas infectadas
+│   └───val                                             # Imágenes de validación categorizadas
+│       ├───Cherry_(including_sour)___healthy
+│       └───Cherry_(including_sour)___Powdery_mildew
+├───images                                              # Imágenes de apoyo para el archivo README.md
+├───models                                              # Almacenado de los pesos de cada modelo
+└───model_training                                      # Modelos de trabajo (Desarrollados en Google Colab)
+```
 
 ---
 ### Autores a cargo (Nombre de Usuario de GitHub)
