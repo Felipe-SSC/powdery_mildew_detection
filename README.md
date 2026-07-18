@@ -1,12 +1,12 @@
 # Powdery Mildew Detection
 
-### 1. Descripción del Problema
+## 1. Descripción del Problema
 
 El mercado de las cerezas es uno en los que Chile tiene mayor participación a nivel mundial, posicionándose en la actualidad como uno de los mayores exportadores de todo el mundo. Por esto mismo, el estudio y seguimiento del correcto crecimiento de las cerezas se ha vuelto clave para asegurar mejores cosechas, aumentar la producción y presentar mayores ingresos para un gran número de entidades, desde agricultores hasta grandes empresas. Es por esto que se postula el diseño de un algoritmo de detección automatizado de la enfermedad 'blanquilla' u 'oídio' en los cultivos de las cerezas, esto a través de modelos de Deep Learning basados en conjuntos de imágenes.
 
 Esta implementación contempla desde un análisis exploratorio de datos (EDA) hasta una implementación inicial y la regularización y comparación de resultados en base a los algoritmos y técnicas probadas.
 
-### 2. Dataset
+## 2. Dataset
 
 Para realizar esta tarea, se trabajará con el dataset PlantVillage de 'spMoganty', el cual se puede obtener desde el [repositorio oficial en GitHub](https://github.com/spMohanty/PlantVillage-Dataset.git), o bien desde su página en [Kaggle](https://www.kaggle.com/datasets/mohitsingh1804/plantvillage). Este dataset contiene 38 tipos de plantas, con un total de 54305 imágenes que incluyen plantas sanas y con pestes y 14 especies de cultivos, entre los cuales se encuentran manzanos, naranjos y cerezos.
 
@@ -20,6 +20,7 @@ Para alcanzar resultados, se trabajará primero mediante el preprocesado de imá
 
 Ya entrando a la etapa de preprocesado, se trabajarán con 5 épocas, promediando los resultados tanto de entrenamiento así como de validación.
 
+---
 ### Autores a cargo (Nombre de Usuario de GitHub)
 - Alejandro Reyes (fleajrv)
 - Felipe Sánchez (Felipe-SSC)
