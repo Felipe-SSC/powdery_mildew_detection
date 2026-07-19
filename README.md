@@ -20,9 +20,9 @@
 
 ## 1. Descripción del Problema
 
-El mercado de las cerezas es uno en los que Chile tiene mayor participación a nivel mundial, posicionándose en la actualidad como uno de los mayores exportadores de todo el mundo. Por esto mismo, el estudio y seguimiento del correcto crecimiento de las cerezas se ha vuelto clave para asegurar mejores cosechas, aumentar la producción y presentar mayores ingresos para un gran número de entidades, desde agricultores hasta grandes empresas. Es por esto que se postula el diseño de un algoritmo de detección automatizado de la enfermedad 'blanquilla' u 'oídio' en los cultivos de las cerezas, esto a través de modelos de Deep Learning basados en conjuntos de imágenes.
+El mercado de las cerezas es uno en los que Chile tiene mayor participación a nivel mundial, posicionándose en la actualidad como uno de los mayores exportadores de todo el mundo. Por esto mismo, el estudio y seguimiento del correcto crecimiento de las cerezas se ha vuelto clave para asegurar mejores cosechas, aumentar la producción y presentar mayores ingresos para un gran número de entidades, desde agricultores hasta grandes empresas. Es por esto que se postula el estudio y evaluación de modelos como MobileNet y ResNet en la detección automatizada de la enfermedad 'blanquilla' u 'oídio' en los cultivos de las cerezas, a través de procesos de Deep Learning basados en conjuntos de imágenes.
 
-Esta implementación contempla desde un análisis exploratorio de datos (EDA) hasta una implementación inicial y la regularización y comparación de resultados en base a los algoritmos y técnicas probadas.
+Esta implementación contempla desde un análisis exploratorio de datos (EDA) hasta una implementación inicial y la regularización y comparación de resultados en base a los modelos y técnicas probadas.
 
 ## 2. Dataset
 
@@ -61,11 +61,11 @@ Para alcanzar resultados, se trabajará primero mediante el preprocesado de imá
 
 Ya entrando a la etapa de entrenamiento se trabajarán con 5 épocas, promediando los resultados tanto de entrenamiento como validación en cada lote generado y a través de las épocas, graficando luego la comparación entre épocas y el grado de pérdida, para finalmente medir el desempeño mediante una matriz de confusión y hacer pruebas visuales del procesamiento del modelo.
 
-### 3.1 Modelo Resnet (Sin regularización)
+### 3.1 Modelo ResNet (Sin regularización)
 Para este primer modelo, se trabajó con un proceso de preprocesado regular, basado en la transformación de las imágenes a 256 x 256 píxeles por motivos de protocolo, se obtienen los 224 píxeles centrales, y finalmente normalizando la información.
 Para efectos de este caso, como optimizador se optó por utilizar el Descenso de Gradiente Estocástico (SGD) con un ritmo de aprendizaje de 0.001, esto con motivo del carácter más exacto pero tardado de ResNet, dado que si ya se conoce que este modelo posee un mayor tiempo de cómputo, se prefirió sumarle un optimizador que vaya de la mano con el mismo funcionamiento. En total, presentó un tiempo promedio de ejecución de 3 minutos, y en la matriz de riesgos entregó un nivel de precisión casi perfecto, clasificando únicamente una de las muestras de validación con plaga erróneamente como una hoja sana, alcanzando en la quinta época una pérdida de 0.07650.
 
-### 3.2. Modelo Resnet (Regularizado)
+### 3.2. Modelo ResNet (Regularizado)
 Para realizar esta instancia del modelo ResNet, se ejecutó un mayor nivel de preprocesado para el conjunto de entrenamiento, realizando Data Augmentation, potencialmente obteniendo resultados más ajustados a la realidad y evitar así el overfitting, específicamente mediante las operaciones:
 - **RandomHorizontalFlip**: Volteando la imágen horizontalmente
 - **RandomRotation**: Para realizar una rotación de la imágen en un ángulo al azar.
